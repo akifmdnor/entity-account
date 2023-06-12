@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('entities_balance', function (Blueprint $table) {
-            $table->id();
-            $table->foreign('entity_id')->references('id')->on('transactions');
-            $table->foreign('transaction_id')->references('id')->on('transactions');
-            $table->bigInteger('balance')->default(0);
-            $table->timestamps();
+        Schema::connection('mongodb')->create('entities_balance', function ($collection) {
+            $collection->index('entity_id');
+            $collection->index('transaction_id');
+            $collection->index('balance');
         });
     }
 

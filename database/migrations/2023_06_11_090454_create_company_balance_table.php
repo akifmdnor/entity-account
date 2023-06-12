@@ -11,11 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('company_balance', function (Blueprint $table) {
-            $table->id();
-            $table->foreign('transaction_id')->references('id')->on('transactions');
-            $table->bigInteger('current_balance')->default(0);
-            $table->timestamps();
+        Schema::connection('mongodb')->create('company_balance', function ($collection) {
+            $collection->index('transaction_id');
+            $collection->index('current_balance');
         });
     }
 

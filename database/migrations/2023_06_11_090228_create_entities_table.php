@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
@@ -11,13 +12,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('entities', function (Blueprint $table) {
-            $table->id()->default(DB::raw('(UUID())'));
-            $table->string('name');
-            $table->string('tax_number');
-            $table->string('legal_address');
-            $table->timestamps();
+        Schema::connection('mongodb')->create('entities', function ($collection) {
+            $collection->index('name');
+            $collection->index('tax_number');
+            $collection->index('legal_address');
         });
+
     }
 
     /**
