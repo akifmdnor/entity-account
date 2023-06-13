@@ -1,11 +1,11 @@
 <?php
 
 return [
-    'default' => 'default',
+    'default' => 'Endpoints',
     'documentations' => [
-        'default' => [
+        'Endpoints' => [
             'api' => [
-                'title' => 'L5 Swagger UI',
+                'title' => 'Accouning Entity System',
             ],
 
             'routes' => [

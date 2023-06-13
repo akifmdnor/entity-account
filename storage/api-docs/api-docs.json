@@ -28,6 +28,17 @@
         "/entities/{id}": {
             "get": {
                 "operationId": "7f3817b8260d3cc6aa3a7921b95207aa",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Entity id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "Get info and balance of an entity"
@@ -41,6 +52,48 @@
         "/transactions/{transaction}/{id}": {
             "put": {
                 "operationId": "260817b73c71c482ad2e3d7bb9c2c570",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Entity id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "transaction",
+                        "in": "path",
+                        "description": "topup or withdraw",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "topup",
+                            "enum": [
+                                "withdraw",
+                                "topup"
+                            ]
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Request body in JSON format",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "amount": {
+                                        "type": "number",
+                                        "example": "105"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
                 "responses": {
                     "200": {
                         "description": "successful operation"
