@@ -16,6 +16,7 @@ return new class extends Migration
             $collection->index('name');
             $collection->index('tax_number');
             $collection->index('legal_address');
+            $collection->dateTime('created_at')->nullable();
         });
 
     }

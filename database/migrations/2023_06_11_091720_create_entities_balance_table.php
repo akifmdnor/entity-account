@@ -15,6 +15,7 @@ return new class extends Migration
             $collection->index('entity_id');
             $collection->index('transaction_id');
             $collection->index('balance');
+            $collection->dateTime('created_at')->nullable();
         });
     }
 

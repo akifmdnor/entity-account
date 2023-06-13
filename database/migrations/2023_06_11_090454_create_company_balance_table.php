@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::connection('mongodb')->create('company_balance', function ($collection) {
             $collection->index('transaction_id');
             $collection->index('current_balance');
+            $collection->dateTime('created_at')->nullable();
         });
     }
 

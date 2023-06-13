@@ -16,6 +16,8 @@ return new class extends Migration
             $collection->index('transaction_total');
             $collection->index('transaction_comission');
             $collection->index('net_transaction');
+            $collection->index('transaction_type');
+            $collection->dateTime('created_at')->nullable();
         });
     }
 
