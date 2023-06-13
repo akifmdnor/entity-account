@@ -14,10 +14,9 @@ https://docs.google.com/document/d/1VPh4ydYtZRRnsLDOvas_aevOxXkw52K1-TYOAqYe4Vs/
 ## Running the project
 
 1. cp .env.example .env
-2. ./vendor/bin/sail up
-3. ./vendor/bin/sail composer install
-4. ./vendor/bin/sail db:seed to add example entities
-5. Go to http://localhost/api/documentation to access the API
+2. docker-compose up -d (make sure localhost and port 80 is not occupied)
+3. ./vendor/bin/sail db:seed to add example entities
+4. Go to http://localhost/api/documentation to access the API
 
 ## Highlights & Requirements
 
