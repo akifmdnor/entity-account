@@ -1,0 +1,58 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Accounting Entity System",
+        "version": "0.1"
+    },
+    "paths": {
+        "/company-balance": {
+            "get": {
+                "operationId": "8c97e2482251fbfdf23bb9524bc523b0",
+                "responses": {
+                    "200": {
+                        "description": "Get current balance of the company"
+                    }
+                }
+            }
+        },
+        "/entities": {
+            "get": {
+                "operationId": "6adc4af4e190f79091766a8725e1a2a6",
+                "responses": {
+                    "200": {
+                        "description": "Get list of all entities"
+                    }
+                }
+            }
+        },
+        "/entities/{id}": {
+            "get": {
+                "operationId": "7f3817b8260d3cc6aa3a7921b95207aa",
+                "responses": {
+                    "200": {
+                        "description": "Get info and balance of an entity"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        },
+        "/transactions/{transaction}/{id}": {
+            "put": {
+                "operationId": "260817b73c71c482ad2e3d7bb9c2c570",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        }
+    }
+}

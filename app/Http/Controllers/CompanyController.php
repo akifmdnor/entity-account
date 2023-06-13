@@ -12,7 +12,13 @@ class CompanyController extends Controller
     {
         $this->companyService = $companyService;
     }
-    
+
+    /**
+     * @OA\Get(
+     *     path="/company-balance",
+     *     @OA\Response(response="200", description="Get current balance of the company")
+     * )
+     */
     public function index()
     {
         return response()->json(['balance' => $this->companyService->getCompanyBalance()]);

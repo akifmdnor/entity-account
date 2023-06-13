@@ -21,11 +21,11 @@ class TransactionService
         $entity = $this->entityService->getEntityById($id);
 
         if ($entity == null) {
-            return response()->json(['error' => 'Entity not found']);
+            return response()->json(['error' => 'Entity not found'],404);
         }
 
         if ($transaction != 'topup' && $transaction != 'withdraw') {
-            return response()->json(['error' => 'Invalid transaction type']);
+            return response()->json(['error' => 'Invalid transaction type'],400);
         }
 
         $netAmount = $amount * 0.95;
